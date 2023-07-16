@@ -5,18 +5,45 @@
 
 
 <template name="mainContainer">
-    <div class="container">
+    <div class="app">
         <header>
-            <h1>Todo List </h1>
+            <div class="app-bar">
+                <div class="app-header">
+                    <h1>📝️ To Do List {{incompleteCount}}</h1>
+                </div>
+            </div>
         </header>
 
-        {{> form }}
+        <div class="main">
+            {{#if isUserLogged}}
+                <div class="user">
+                    {{getUser.username}} 🚪
+                </div>
+                {{> form }}
 
-        <ul>
-            {{#each tasks}}
-                {{> task}}
-            {{/each}}
-        </ul>
+                <div class="filter">
+                    <button id="hide-completed-button">
+                        {{#if hideCompleted}}
+                            Show All
+                        {{else}}
+                            Hide Completed
+                        {{/if}}
+                    </button>
+                </div>
+
+                {{#if isLoading}}
+                    <div class="loading">loading...</div>
+                {{/if}}
+
+                <ul class="tasks">
+                    {{#each tasks}}
+                        {{> task}}
+                    {{/each}}
+                </ul>
+            {{else}}
+                {{> login }}
+            {{/if}}
+        </div>
     </div>
 </template>
 

@@ -192,3 +192,11 @@ header {
 
   font-weight: bold;
 }
+
+.progressBar {
+  width: 0%;
+  height: 5px;
+  background-color: #04AA6D;
+  text-align: center;
+  line-height: 30px;
+}

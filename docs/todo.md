@@ -1,0 +1,6 @@
+- add reactiveDict for ischecked VALUE
+- refactor promise call
+- add tests
+- add docs
+- add eslint config
+- add frontend component e.g tailwindcss

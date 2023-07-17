@@ -1,7 +1,5 @@
 import { Template } from 'meteor/templating';
 
-import { TasksCollection } from "../db/TasksCollection";
-
 import './Task.html';
 
 Template.task.events({

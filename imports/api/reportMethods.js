@@ -11,7 +11,7 @@ Meteor.methods({
 
         const exportItem = ReportCollection.findOne({ _id: reportId, user_id: this.userId });
 
-        if (exportItem && exportItem.export_status  === false) {
+        if (exportItem && exportItem.progress === 0 ) {
             return await new Promise((resolve) => {
                 let progress = 0;
                 if(Meteor.isServer) {
@@ -23,13 +23,13 @@ Meteor.methods({
                             Meteor.clearInterval(interval);
                             ReportCollection.update(exportItem._id, {
                                 $set: {
-                                    export_progress: progress,
+                                    progress: progress,
                                     export_link: url,
                                     export_status: true,
                                 }
                             });
                         } else {
-                            ReportCollection.update(exportItem._id, {$set: {export_progress: progress}});
+                            ReportCollection.update(exportItem._id, {$set: {progress: progress}});
                         }
                     }, 1000);
                 }

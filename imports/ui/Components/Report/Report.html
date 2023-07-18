@@ -1,10 +1,39 @@
 <template name="report_file">
-    <td id="ref-report"> <input type="checkbox" class="toggle-checked" /> {{ report.export_name }}</td>
-    <td id="progression-report">
-        <div id="{{_id}}" style="width:{{report.export_progress}}%" class="progressBar"></div>
-    </td>
-    <td id="progressbar-report"><a href={{report.export_link}} target="_blank" >{{report.export_link}}</a></td>
-    <td id="status-report">{{ report.export_status }}</td>
+    <div class="col-span-1 flex items-center justify-center">
+        <label for="checkboxLabelOne" class="flex cursor-pointer select-none items-center ">
+            <div class="relative">
+                <input type="checkbox" class="toggle-checked" id="checkboxLabelOne" />
+            </div>
+        </label>
+    </div>
+    <div class="col-span-3 flex items-center">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
+            <p class="font-medium text-sm text-black dark:text-white">{{ report.export_name }}</p>
+        </div>
+    </div>
+    <div class="col-span-3 items-center sm:flex items-center justify-left">
+        <div class="w-50 flex items-center justify-left">
+            {{#if  isExportInProgress report.progress}}
+                <div id="{{_id}}" style="width:{{report.progress}}%" class="text-xs font-medium text-white inline-flex flex justity-center items-center rounded-md bg-success bg-opacity-50 h-6 py-1 px-3 text-succes">
+                    {{report.progress}}%
+                </div>
+            {{/if}}
+        </div>
+    </div>
+    <div class="col-span-3 flex items-center">
+        <a class="font-medium text-sm text-black dark:text-white" href={{report.export_link}} target="_blank" >{{report.export_link}}</a>
+    </div>
+    <div class="col-span-2 flex items-center">
+        {{#if report.export_status}}
+            <p class="inline-flex rounded-full bg-empire bg-opacity-5 py-1 px-3 text-sm font-medium text-empire">
+                Done
+            </p>
+        {{else}}
+            <p class="inline-flex rounded-full bg-warning bg-opacity-10 py-1 px-3 text-sm font-medium text-warning">
+                Pending
+            </p>
+        {{/if}}
+    </div>
 </template>
 
 

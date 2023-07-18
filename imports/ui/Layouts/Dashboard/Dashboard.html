@@ -1,0 +1,35 @@
+<template name="dashboard">
+    <div class="p-10">
+        <h1 class="text-title-xl mb-5">🗂️ Export List</h1>
+        <div class="rounded-sm border border-stroke bg-white shadow-default">
+            <div class="flex py-6 px-4 md:px-6 xl:px-7.5 justify-end">
+                <a href="#"
+                   class="processExport inline-flex items-center justify-center rounded-md bg-empire py-2 px-5 text-center font-medium text-white hover:bg-opacity-90 lg:px-5 xl:px-8">
+                    Export
+                </a>
+            </div>
+            <div class="grid grid-cols-12 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-12">
+                <div class="col-span-1 flex items-center">
+                    <p class="font-bold"></p>
+                </div>
+                <div class="col-span-3 flex items-center">
+                    <p class="font-bold">Export Name</p>
+                </div>
+                <div class="col-span-3 items-center sm:flex">
+                    <p class="font-bold">Progress</p>
+                </div>
+                <div class="col-span-3 flex items-center">
+                    <p class="font-bold">Link</p>
+                </div>
+                <div class="col-span-2 flex items-center">
+                    <p class="font-bold">Status</p>
+                </div>
+            </div>
+            {{#each report in reportList}}
+                <div class="grid grid-cols-12 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-12 md:px-6 2xl:px-7.5">
+                    {{> report_file (reportProps report)}}
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</template>

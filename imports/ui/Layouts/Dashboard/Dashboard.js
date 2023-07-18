@@ -33,7 +33,8 @@ Template.dashboard.events({
             .map(([key, value]) => key);
 
         reportToProcess.forEach(function (report) {
-            Meteor.call('report.processExport', report);
+            // TODO : resolve the promise to modify the checkedExports to unchecked in the ui
+            Meteor.callAsync('report.processExport', report);
         });
     },
     'click .user'() {

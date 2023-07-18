@@ -25,6 +25,7 @@ $ password = root
 ## ⚠️ Disclaimer ⚠️
 
 - Few improvements needs to be done for the dataflow to be more reactive.
+- A Collection Schema would be nice to have.
 - The UI has to be break it down. I am a big fan of the atomic approach but it was a bit overkill for the test. I have used Tailwind, but with basic knowledge of blaze I am not sure if they are the best match.
 - Finally I have ignored doing test as the endpoint is pretty straigh forward and the app is not for production.
 

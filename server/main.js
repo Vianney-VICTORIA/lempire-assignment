@@ -6,10 +6,8 @@ import '/imports/api/reportMethods';
 import data from '../imports/db/data.json';
 
 
-const SEED_USERNAME = 'meteorite';
-const SEED_PASSWORD = 'password';
-
-
+const SEED_USERNAME = 'root';
+const SEED_PASSWORD = 'root';
 
 Meteor.startup(() => {
     if (!Accounts.findUserByUsername(SEED_USERNAME)) {
@@ -18,9 +16,7 @@ Meteor.startup(() => {
             password: SEED_PASSWORD,
         });
     }
-
     const user = Accounts.findUserByUsername(SEED_USERNAME);
-
 
     // if there is no export in the database, insert the data from the json file
     if (ReportCollection.find().count() === 0) {
@@ -35,5 +31,6 @@ const insertReport = (report, user) =>
         export_name: report.export_name,
         export_link: report.export_link,
         export_status: report.export_status,
+        progress: report.progress,
         created_at: report.created_at,
     });

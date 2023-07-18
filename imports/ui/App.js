@@ -5,8 +5,6 @@ import '../ui/Layouts/Dashboard/Dashboard.js';
 import './Layouts/Dashboard/Dashboard.html';
 import {Template} from "meteor/templating";
 
-
-
 const getUser = () => Meteor.user();
 const isUserLogged = () => !!getUser();
 

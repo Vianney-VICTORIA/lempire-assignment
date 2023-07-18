@@ -6,7 +6,7 @@ import '/imports/api/reportMethods';
 import data from '../imports/db/data.json';
 
 
-const SEED_USERNAME = 'root';
+const SEED_USERNAME = 'lempire';
 const SEED_PASSWORD = 'root';
 
 Meteor.startup(() => {

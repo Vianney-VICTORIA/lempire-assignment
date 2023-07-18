@@ -3,6 +3,8 @@ import './Layouts/Login/Login.js';
 import './Layouts/Login/Login.html';
 import '../ui/Layouts/Dashboard/Dashboard.js';
 import './Layouts/Dashboard/Dashboard.html';
+import './Layouts/Header/Header.html';
+
 import {Template} from "meteor/templating";
 
 const getUser = () => Meteor.user();

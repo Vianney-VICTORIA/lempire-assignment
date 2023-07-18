@@ -5,6 +5,7 @@
 <template name="mainContainer">
     <div class="app">
         {{#if isUserLogged}}
+            {{> header }}
             {{> dashboard }}
         {{else}}
             {{> login }}

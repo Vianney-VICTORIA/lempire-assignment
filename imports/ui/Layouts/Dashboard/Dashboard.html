@@ -1,83 +1,34 @@
 <template name="dashboard">
-    <div class="empireApp">
-        <header class="sticky top-0 z-999 flex w-full bg-white drop-shadow-1 dark:bg-boxdark dark:drop-shadow-none">
-            <div class="flex flex-grow items-center justify-end py-4 px-4 shadow-2 md:px-6 2xl:px-11">
-                <div class="flex gap-3 2xsm:gap-7">
-                    <!-- User Area -->
-                    <div class="relative">
-                        <div class="flex items-center gap-4" >
-                          <span class="text-right lg:block">
-                            <p class="block text-md font-medium text-black">Vianney Victoria</p>
-                            <p class="block text-xs">Software Engineer</p>
-                          </span>
-                            <img class="h-12 w-12 rounded-full" src="https://avatars.githubusercontent.com/u/10738597?v=4" alt="User" />
-                            <svg class=" fill-current sm:block" width="12" height="8"
-                                 viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                      d="M0.410765 0.910734C0.736202 0.585297 1.26384 0.585297 1.58928 0.910734L6.00002 5.32148L10.4108 0.910734C10.7362 0.585297 11.2638 0.585297 11.5893 0.910734C11.9147 1.23617 11.9147 1.76381 11.5893 2.08924L6.58928 7.08924C6.26384 7.41468 5.7362 7.41468 5.41077 7.08924L0.410765 2.08924C0.0853277 1.76381 0.0853277 1.23617 0.410765 0.910734Z"
-                                      fill="" />
-                            </svg>
-                        </div>
-                    </div>
-                    <!-- User Area -->
+    <div class="p-10">
+        <div class="rounded-sm border border-stroke bg-white shadow-default">
+            <div class="flex py-6 px-4 md:px-6 xl:px-7.5 justify-end">
+                <a href="#"
+                   class="processExport inline-flex items-center justify-center rounded-md bg-empire py-2 px-5 text-center font-medium text-white hover:bg-opacity-90 lg:px-5 xl:px-8">
+                    Export
+                </a>
+            </div>
+            <div class="grid grid-cols-12 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-12">
+                <div class="col-span-1 flex items-center">
+                    <p class="font-bold"></p>
+                </div>
+                <div class="col-span-3 flex items-center">
+                    <p class="font-bold">Export Name</p>
+                </div>
+                <div class="col-span-3 items-center sm:flex">
+                    <p class="font-bold">Progress</p>
+                </div>
+                <div class="col-span-3 flex items-center">
+                    <p class="font-bold">Link</p>
+                </div>
+                <div class="col-span-2 flex items-center">
+                    <p class="font-bold">Status</p>
                 </div>
             </div>
-        </header>
-
-{{!--        <div class="main">--}}
-{{!--            <div class="user">--}}
-{{!--                {{getUser.username}} 🚪--}}
-{{!--            </div>--}}
-{{!--            <div class="filter">--}}
-{{!--                <button class="processExport">--}}
-{{!--                    process export--}}
-{{!--                </button>--}}
-{{!--            </div>--}}
-{{!--            <table style="width: 100%; text-align: center">--}}
-{{!--                <tr>--}}
-{{!--                    <th>Report Name</th>--}}
-{{!--                    <th>Progression</th>--}}
-{{!--                    <th>Link</th>--}}
-{{!--                    <th>Status</th>--}}
-{{!--                </tr>--}}
-{{!--                {{#each report in reportList}}--}}
-{{!--                    <tr>--}}
-{{!--                        {{> report_file (reportProps report)}}--}}
-{{!--                    </tr>--}}
-{{!--                {{/each}}--}}
-{{!--            </table>--}}
-{{!--        </div>--}}
-        <div class="p-10">
-            <div class="rounded-sm border border-stroke bg-white shadow-default">
-                <div class="flex py-6 px-4 md:px-6 xl:px-7.5 justify-end">
-                    <a href="#"
-                       class="processExport inline-flex items-center justify-center rounded-md bg-empire py-2 px-5 text-center font-medium text-white hover:bg-opacity-90 lg:px-5 xl:px-8">
-                        Export
-                    </a>
+            {{#each report in reportList}}
+                <div class="grid grid-cols-12 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-12 md:px-6 2xl:px-7.5">
+                    {{> report_file (reportProps report)}}
                 </div>
-                <div class="grid grid-cols-12 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-12">
-                    <div class="col-span-1 flex items-center">
-                        <p class="font-bold"></p>
-                    </div>
-                    <div class="col-span-3 flex items-center">
-                        <p class="font-bold">Export Name</p>
-                    </div>
-                    <div class="col-span-3 items-center sm:flex">
-                        <p class="font-bold">Progress</p>
-                    </div>
-                    <div class="col-span-3 flex items-center">
-                        <p class="font-bold">Link</p>
-                    </div>
-                    <div class="col-span-2 flex items-center">
-                        <p class="font-bold">Status</p>
-                    </div>
-                </div>
-                {{#each report in reportList}}
-                    <div class="grid grid-cols-12 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-12 md:px-6 2xl:px-7.5">
-                        {{> report_file (reportProps report)}}
-                    </div>
-                {{/each}}
-            </div>
+            {{/each}}
         </div>
     </div>
 </template>

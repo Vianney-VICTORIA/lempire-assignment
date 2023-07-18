@@ -1,0 +1,10 @@
+<template name="report_file">
+    <td id="ref-report"> <input type="checkbox" class="toggle-checked" /> {{ report.export_name }}</td>
+    <td id="progression-report">
+        <div id="{{_id}}" style="width:{{report.export_progress}}%" class="progressBar"></div>
+    </td>
+    <td id="progressbar-report"><a href={{report.export_link}} target="_blank" >{{report.export_link}}</a></td>
+    <td id="status-report">{{ report.export_status }}</td>
+</template>
+
+

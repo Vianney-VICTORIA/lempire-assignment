@@ -1,0 +1,34 @@
+<template name="dashboard">
+    <div class="app">
+        <header>
+            <div class="app-bar">
+                <div class="app-header">
+                    <h1>📝️ To Do List {{incompleteCount}}</h1>
+                </div>
+            </div>
+        </header>
+        <div class="main">
+            <div class="user">
+                {{getUser.username}} 🚪
+            </div>
+            <div class="filter">
+                <button class="processExport">
+                    process export
+                </button>
+            </div>
+            <table style="width: 100%; text-align: center">
+                <tr>
+                    <th>Report Name</th>
+                    <th>Progression</th>
+                    <th>Link</th>
+                    <th>Status</th>
+                </tr>
+                {{#each report in reportList}}
+                    <tr>
+                        {{> report_file (reportProps report)}}
+                    </tr>
+                {{/each}}
+            </table>
+        </div>
+    </div>
+</template>

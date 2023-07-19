@@ -23,7 +23,7 @@ Template.dashboard.onCreated(function mainContainerOnCreated() {
 
 
 Template.dashboard.events({
-    'click .processExport'(events) {
+    'click .js-process-export'(events) {
         events.preventDefault();
 
         const checkedReports = Template.instance().checkedExports.all();
@@ -36,17 +36,14 @@ Template.dashboard.events({
             // TODO : resolve the promise to modify the checkedExports to unchecked in the ui
             Meteor.callAsync('report.processExport', report);
         });
-    },
-    'click .user'() {
-        Meteor.logout();
     }
 });
 
 Template.dashboard.helpers({
     reportList() {
         const userFilter = getExportByUserId();
-        const reportList = ReportCollection.find(userFilter, { sort: { createdAt: -1 } }).fetch();
-        return reportList;
+        const reportsByUserId = ReportCollection.find(userFilter, { sort: { createdAt: -1 } }).fetch();
+        return reportsByUserId;
     },
     reportProps(report) {
         const instance = Template.instance();
